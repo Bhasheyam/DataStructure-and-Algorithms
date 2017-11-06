@@ -3,19 +3,74 @@ package LinkedList;
 public class LinkedListSingly {
 	
 	private Node head;  // head of the List 
+    
+	public LinkedListSingly(){
+		this.head =null;
+	}
+	
+	public void append(int data){
+		if(this.head == null){
+			this.head =  new Node(data);
+		}
+		else{
+			Node temp = this.head;
+			while( temp.getNext() != null ){
+				temp = temp.getNext();
+			}
+			temp.setNext(new Node(data));
+		}
+	}
+	
+	
+	public void insert(int data){
+		Node temp = new Node(data);
+		temp.setNext(this.head);
+		this.head = temp;
+	}
+	
+	public void pop(){
+		if(this.head == null){
+			System.out.println("the list is null");
+		}
+		else{
+			
+		    if (this.head.getNext() == null)
+		           this.head = null;
+		   else{
+			  Node temp =this.head;
+		      while(true){
+			     if (temp.getNext().getNext() == null){
+			                                   temp.setNext(null);
+			                                   break;
+			     									 }
+			     temp = temp.getNext();
+		                 }
+		       }
+		   }
+	}
+	
+	public void removefirst(){
+		if(this.head == null){
+			System.out.println("the list is null");
+		}
+		else{
+			
+			   this.head = this.head.getNext();
+		   
+		   }
 
+		}
+		
+	public void printlist(){
+		Node loop = this.head;
+		while(loop != null){
+			System.out.println(loop.getData());
+			loop = loop.getNext();
+		}
+	}
 	
-	// gettters and setters for the list
-	public void sethead(Node n){
-		 head=n;
-	 }
+	class Node{
 	
-	public Node head(){
-		 return head;
-	 }
-	
-	// Node generators
-	 static class Node{
 		 
 		// Data and Next reference  
 		private int data;
@@ -30,7 +85,7 @@ public class LinkedListSingly {
 		public void setData(int data) {
 			this.data = data;
 		}
-		 public int getdata(){
+		 public int getData(){
 			 return data;
 		 }
 		 public Node getNext(){
@@ -43,27 +98,28 @@ public class LinkedListSingly {
 
 
 	 }
+	 
 public static void main(String s[]){
 	
-	// sample to test how it works
-	LinkedListSingly l= new LinkedListSingly();
-	l.sethead(new Node(10));
-	Node sec= new Node(20);
-	Node third= new Node(30);
-	Node linked= l.head();
-	linked.setNext(sec);
-	sec.setNext(third);
-	Node loopdata=linked;
-	
-	// run the loop to see the lis created properly
-	while(true){
-		System.out.println(loopdata.getdata());
-		if(loopdata.getNext() == null)
-			break;
-		loopdata=loopdata.getNext();
+	LinkedListSingly listfirst = new LinkedListSingly();
+	listfirst.append(10);
+	listfirst.append(20);
+	listfirst.append(30);
+	listfirst.printlist();
+	listfirst.insert(5);
+	listfirst.printlist();
+	listfirst.pop();
+	listfirst.printlist();
+	listfirst.removefirst();
+	listfirst.printlist();
+	listfirst.removefirst();
+	listfirst.printlist(); 
+	listfirst.pop();
+	System.out.println("finished");
+	listfirst.printlist() ;
 		
 	}
 	
 	
 }
-}
+

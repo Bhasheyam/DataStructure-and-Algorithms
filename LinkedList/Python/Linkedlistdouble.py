@@ -1,3 +1,9 @@
+class doublelink:
+    def __init__(self):
+        self.head = None
+    
+
+
 class double:
     def __init__(self,data1):
         self.data = data1

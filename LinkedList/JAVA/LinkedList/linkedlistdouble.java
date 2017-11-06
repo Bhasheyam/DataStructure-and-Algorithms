@@ -1,12 +1,16 @@
 package LinkedList;
 
 public class linkedlistdouble {
+	private Node head;
+	class Node{
+		
+	
 	private int data;
-	private linkedlistdouble next;
-	private linkedlistdouble prev;
+	private Node next;
+	private Node prev;
 	
 	
-	public linkedlistdouble(int datainput){
+	public Node(int datainput){
 		this.data = datainput;
 		this.next = null;
 		this.prev = null;
@@ -23,32 +27,33 @@ public class linkedlistdouble {
 	}
 
 
-	public linkedlistdouble getNext() {
+	public Node getNext() {
 		return next;
 	}
 
 
-	public void setNext(linkedlistdouble next) {
-		this.next = next;
+	public void setNext(Node node) {
+		this.next = node;
 	}
 
 
-	public linkedlistdouble getPrev() {
+	public Node getPrev() {
 		return prev;
 	}
 
 
-	public void setPrev(linkedlistdouble prev) {
+	public void setPrev(Node prev) {
 		this.prev = prev;
+	}
 	}
 
 public static void main(String s[]){
 	
-	linkedlistdouble first = new linkedlistdouble(10);
-	first.setNext(new linkedlistdouble(20));
-	first.getNext().setNext(new linkedlistdouble(30));
+	Node first = new Node(10);
+	first.setNext(new Node(20));
+	first.getNext().setNext(new Node(30));
 	
-	linkedlistdouble loopdata=first;
+	Node loopdata=first;
 	while(true){
 		System.out.println(loopdata.getData());
 		if(loopdata.getNext() == null)
