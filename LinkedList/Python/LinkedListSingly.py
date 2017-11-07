@@ -3,7 +3,7 @@ class linkedsingly:
         self.head = None
         
    
-    
+    # add element in the last
     def append(self,datas):
        
         if  self.head == None:
@@ -16,7 +16,7 @@ class linkedsingly:
 
     
     
-    
+    # add element first
     
     def insert(self, datas):
         temp = Node(datas)
@@ -25,7 +25,7 @@ class linkedsingly:
     
    
     
-    
+    # remove element from first
     def removefirst(self):
         if self.head == None:
             print("List is Empty")
@@ -34,6 +34,7 @@ class linkedsingly:
             self.head = self.head.getnext()
     
    
+    #Remove elementfrom Last
     
     def pop(self):
         if self.head == None:
@@ -49,8 +50,28 @@ class linkedsingly:
                     break
                 temp = temp.getnext()
     
-    
-    
+    # add element after k
+    def addk(self,k,data1):
+        
+        temp = self.head
+        while temp:
+            if temp.getdata() == k:
+                new = Node(data1)
+                new.setNext(temp.getnext())
+                temp.setNext(new)
+            temp = temp.getnext()
+        
+    # remove k element in the List
+    def removek(self,k):
+        if self.head.getdata() == k:
+            self.head= self.head.getnext()
+        else:
+            temp=self.head
+            while temp:
+                if temp.getnext() == k:
+                    temp.setNext( temp.getnext().getnext())
+                temp = temp.getnext()           
+    # print the list.
     def printlist(self):
         loop =self.head
         while loop:
@@ -94,5 +115,16 @@ listfirst.removefirst()
 listfirst.printlist() 
 listfirst.pop()
 print("finished")
+listfirst.printlist()
+print()
+print()
+listfirst.append(10)
+listfirst.insert(20)
+listfirst.append(30)
+listfirst.addk(20,45)
+listfirst.printlist()
+print()
+print()
+listfirst.removek(20)
 listfirst.printlist()   
     
