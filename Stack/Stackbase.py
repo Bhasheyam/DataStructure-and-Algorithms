@@ -3,8 +3,6 @@ class stack:
         self.stack = []
         
     def push(self,item):
-        temp = self.stack
-        temp.append(item)
         self.stack.append(item)
     
     def pop(self):
@@ -17,10 +15,8 @@ class stack:
     def printstack(self):
         
         temp =self.stack
-        i=0
-        while i < len(temp):
-            print temp.pop()
-            i += 1
+        for a in temp:
+            print(a)
             
     def stacksize(self):
         return len(self.stack)
@@ -37,6 +33,9 @@ test.push(30)
 test.printstack()
 print(" ")
 print( test.pop())
+print " "
+test.printstack()
+test.pop()
 print " "
 test.printstack()
         
