@@ -15,7 +15,7 @@ class stack:
     def printstack(self):
         
         temp =self.stack
-        for a in temp:
+        for a in temp[::-1]:
             print(a)
             
     def stacksize(self):
