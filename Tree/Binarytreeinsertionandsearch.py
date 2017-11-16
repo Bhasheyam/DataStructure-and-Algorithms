@@ -1,4 +1,4 @@
-class Tree:
+class binarytree:
     def __init__(self, rootdata):
         self.root = rootdata
         self.left = None
@@ -15,6 +15,22 @@ class Tree:
 
     def getright(self):
         return self.right 
+        
+    def insert(self,root,item):
+        if root.root < item:
+            if root.right == None:
+                root.right = binarytree(item)
+            else:
+                self.insert(root.right,item)
+           
+        else:
+             if root.left == None:
+                root.left = binarytree(item)
+             else:
+                self.insert(root.left,item)
+             
+          
+        
     
     def inorderprint(self,root):
         if root:
@@ -43,18 +59,8 @@ class Tree:
             self.postorderprint(root.right)
             
             print(root.root)
-t = Tree(10)
-t.setleft(Tree(20))
-t.setright(Tree(30))
-t.getleft().setleft(Tree(40))
-t.getleft().setright(Tree(50))
-t.getright().setleft(Tree(60))
-t.getright().setright(Tree(70))
-t.inorderprint(t)
-print " "
-t.preorderprint(t) 
-print " "
-       
-t.postorderprint(t)
-test = [t]
-print(test)
+t = binarytree(10)
+t.insert(t,5)
+t.insert(t,20)
+t.insert(t,30)
+t.preorderprint(t)
