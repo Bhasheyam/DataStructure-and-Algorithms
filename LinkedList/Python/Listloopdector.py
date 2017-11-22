@@ -91,8 +91,14 @@ class linkedsingly:
             print(loop.getdata())
             loop =  loop.getnext()
             
-    
-      
+    def loopdector(self,List1):
+        value = []
+        while List1:
+            if List1.data in value:
+                return True
+            value.append(List1.data)
+            List1 = List1.next
+        return False
         
             
         
@@ -121,6 +127,7 @@ listfirst.append(20)
 listfirst.append(30)
 listfirst.append(30)
 listfirst.append(30)
+print(listfirst.loopdector(listfirst.head))
 listfirst.printlist()
 Aa=listfirst.deleteDuplicates(listfirst.head)
 while Aa:

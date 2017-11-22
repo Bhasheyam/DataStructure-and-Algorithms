@@ -91,9 +91,22 @@ class linkedsingly:
             print(loop.getdata())
             loop =  loop.getnext()
             
-    
-      
-        
+    def loopdector(self,List1):
+        value = []
+        while List1:
+            if List1.data in value:
+                return True
+            value.append(List1.data)
+            List1 = List1.next
+        return False
+    def middleoflist(self,data1):
+        slow = data1
+        fast = data1
+        while fast != None and fast.next != None:
+            slow = slow.next
+            fast =  fast.next.next
+        return slow.data
+           
             
         
         
@@ -119,8 +132,13 @@ listfirst = linkedsingly()
 listfirst.append(10)
 listfirst.append(20)
 listfirst.append(30)
-listfirst.append(30)
-listfirst.append(30)
+listfirst.append(40)
+listfirst.append(50)
+listfirst.append(60)
+#listfirst.append(70)
+print(listfirst.head)
+print(listfirst.middleoflist(listfirst.head))
+print(listfirst.loopdector(listfirst.head))
 listfirst.printlist()
 Aa=listfirst.deleteDuplicates(listfirst.head)
 while Aa:
